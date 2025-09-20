@@ -6,17 +6,18 @@ import Signin from './Signin.jsx'
 import Signup from './Signup.jsx'
 import NavBar from './NavBar.jsx'
 import Home from './Home.jsx'
+import {Routes,Route} from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      < NavBar />
-      {/* < Signup /> */}
-      {/* <Signin /> */}
-      < Home />
-    </>
+    <Routes>
+      <Route path="/Signup" element={<Signup/>} />
+      <Route path="/Signin" element={<Signin/>} />
+      <Route path="/Home" element={<Home/>} />
+
+    </Routes >  
   )
 }
 
