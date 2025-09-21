@@ -98,9 +98,9 @@ const SignUp = () => {
     return (
         <div className='flex flex-col  items-center  gap-5'>
             <NavBar />
-            <h1 className="text-2xl text-blue-600 font-bold">Join Wague-verse</h1>
+            <h1 className="text-2xl text-blue-600 font-bold">Join Blog-verse</h1>
             <p className='text-gray-600 text-center font-semibold'>Create your account and  <br /> start your blogging journey</p>
-            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-black w-1/3 py-7 items-center gap-5 rounded-xl" >
+            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-black w-[90%] sm:w-[50%] lg:w-1/4 py-7 items-center gap-5 rounded-xl" >
                 <div className="w-[90%]">
                     <h1 className="text-md text-gray-700 font-semibold">Full Name</h1>
                     <input value={formData.fullName} onChange={handleChange} type="text" name="fullName" id="1" placeholder='Enter your full name' className='border-1 w-full py-4 px-2 rounded-xl focus:outline-none focus:border-purple-500 ' />
@@ -137,8 +137,8 @@ const SignUp = () => {
                 </div>
                 {errors.conformPassword && <p className='text-red-500'>{errors.conformPassword}</p>}
                 <div className="flex gap-3 border-gray-400 border-1 w-[90%] py-5 px-4 justify-center rounded-xl ">
-                    <input type="checkbox" name="terms" id="6" className="h-5 w-5 items-center" />
-                    <p>i agree the terms and conditions</p>
+                    <input type="checkbox" name="terms" id="6" className="mt-0.5 h-5 w-5 items-center" />
+                    <p className='text-xs mt-1 sm:text-sm sm:mt-0.5 '>i agree the terms and conditions</p>
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
                 {success && <p className="text-green-500">{success}</p>}

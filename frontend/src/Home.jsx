@@ -1,3 +1,4 @@
+import NavBar from './NavBar.jsx'
 function Home() {
 
     const posts = [{
@@ -57,7 +58,8 @@ function Home() {
     }]
 
     return (
-        <div className="min-h-screen flex flex-col items-center pt-5 bg-gray-50">
+        <div className=" min-h-screen flex flex-col items-center pt-0 bg-gray-50">
+            <NavBar />
             <p className="text-4xl font-bold">Welcome back, Dev Astra</p>
             <p className="text-lg text-gray-500 mt-4"> Discover amazing stories, insights, and ideas from our community of writers.</p>
             <div className=" flex gap-10 justify-around mt-5 ">
