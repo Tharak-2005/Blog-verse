@@ -30,12 +30,14 @@ const SignUp = () => {
             [event.target.name]:"" 
             })
     }
-
+    const[isModelOpen,setIsModelOpen]=useState(false)
+    const[isLoading,setIsLoading]=useState(false)
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const handleSubmit = (event) => {
 
         event.preventDefault();
+        setIsLoading(true)
         let newErrors={}
         if(!formData.fullName){
             newErrors.fullName="Please enter your full name"
@@ -54,9 +56,12 @@ const SignUp = () => {
         }
         if(Object.keys(newErrors).length>0){
             setErrors(newErrors);
+            setIsLoading(false)
         }
         else{
-            setSuccess("Successful login");
+            //setTimeout(function,time)
+            setTimeout(()=>{
+                setSuccess("Your account has been Successful created");
             setError("");
             setFormData({
                 fullName: "",
@@ -64,6 +69,10 @@ const SignUp = () => {
                 password: "",
                 conformPassword: ""
             })
+            setIsModelOpen(true)
+            setIsLoading(false)
+            },3000)
+            
         }
 
         // if (!formData.fullName || !formData.email || !formData.password || !formData.conformPassword) {
@@ -142,11 +151,22 @@ const SignUp = () => {
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
                 {success && <p className="text-green-500">{success}</p>}
-                <button type="submit" className="flex justify-center gap-3 w-[90%] cursor-pointer rounded-xl bg-purple-500 font-semibold text-white px-4 py-5"><CircleUserRound />Create Account</button>
+                <button type="submit" className="flex justify-center gap-3 w-[90%] cursor-pointer rounded-xl bg-purple-500 font-semibold text-white px-4 py-5" onClick={handleSubmit}><CircleUserRound />{isLoading?<p>Creating...</p>:<p> Create Account</p>}</button>
                 <div className="border-[0.5px] border-gray-500 w-[90%]"></div>
                 <p className="text-gray-500 font-semibold">Already have an account ?  <Link to="/Signin" className="text-purple-500 cursor-pointer">SignIn Here</Link></p>
                 <Link to="/" className="text-gray-500 font-semibold hover:bg-gray-200 py-5 px-4 w-[90%] rounded-xl cursor-pointer">Back to home</Link>
             </form>
+            {isModelOpen && <div className="fixed flex justify-center items-center h-dvh w-dvw ">
+                <div className='absolute h-dvh w-dvw bg-black opacity-50 '></div>
+                <div className='p-6 border-grey-500 rounded-lg bg-white z-10 '>
+                    <p className='text-xl font-bold'>Hello Tharak welcome to BlogVerse</p>
+                    <p>Your account has been Successfully Created now you can Login </p>
+                    <div className='flex gap-10'>
+                        <Link to="/Signin" className='px-3 py-2 border-2 rounded bg-blue-500'>Login</Link>
+                        <button onClick={()=>setIsModelOpen(false)} className='px-3 py-2 border-2 rounded bg-gray-500'>Close</button>
+                    </div>
+                </div>
+            </div>}
         </div>
     )
 }
