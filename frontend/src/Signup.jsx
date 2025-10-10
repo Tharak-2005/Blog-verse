@@ -145,7 +145,7 @@ const SignUp = () => {
                 <button type="submit" className="flex justify-center gap-3 w-[90%] cursor-pointer rounded-xl bg-purple-500 font-semibold text-white px-4 py-5"><CircleUserRound />Create Account</button>
                 <div className="border-[0.5px] border-gray-500 w-[90%]"></div>
                 <p className="text-gray-500 font-semibold">Already have an account ?  <Link to="/Signin" className="text-purple-500 cursor-pointer">SignIn Here</Link></p>
-                <Link to="/Home" className="text-gray-500 font-semibold hover:bg-gray-200 py-5 px-4 w-[90%] rounded-xl cursor-pointer">Back to home</Link>
+                <Link to="/" className="text-gray-500 font-semibold hover:bg-gray-200 py-5 px-4 w-[90%] rounded-xl cursor-pointer">Back to home</Link>
             </form>
         </div>
     )
